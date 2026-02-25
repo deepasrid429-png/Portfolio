@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deepasri | Software Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#050816;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* ===== Animated Background ===== */
+
+body::before{
+  content:'';
+  position:fixed;
+  width:200%;
+  height:200%;
+  background:
+  radial-gradient(circle at 20% 30%, rgba(0,255,255,0.1), transparent 40%),
+  radial-gradient(circle at 80% 70%, rgba(157,0,255,0.15), transparent 40%);
+  animation:moveBg 15s linear infinite alternate;
+  z-index:-1;
+}
+
+@keyframes moveBg{
+  from{transform:translate(0,0);}
+  to{transform:translate(-200px,-150px);}
+}
+
+/* ===== NAV ===== */
+
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+nav h2{
+  font-family:'Orbitron',sans-serif;
+  color:#00f5ff;
+}
+
+nav a{
+  text-decoration:none;
+  color:white;
+  margin-left:25px;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#9d00ff;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:120px 10%;
+}
+
+.hero-left{
+  flex:1;
+}
+
+.hero-left h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:55px;
+  background:linear-gradient(90deg,#00f5ff,#9d00ff);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.typing{
+  font-size:24px;
+  margin-top:20px;
+  color:#00f5ff;
+  min-height:30px;
+}
+
+.hero-card{
+  margin-top:30px;
+  padding:25px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
+  border-radius:20px;
+  border:1px solid rgba(0,255,255,0.3);
+  box-shadow:0 0 25px rgba(0,255,255,0.3);
+}
+
+.hero-right{
+  flex:1;
+  display:flex;
+  justify-content:center;
+}
+
+.profile-wrapper{
+  position:relative;
+  width:300px;
+  height:400px;
+}
+
+.profile-wrapper img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:25px;
+  box-shadow:0 0 40px #00f5ff;
+}
+
+.profile-wrapper::before{
+  content:'';
+  position:absolute;
+  width:340px;
+  height:440px;
+  top:-20px;
+  left:-20px;
+  border-radius:30px;
+  background:linear-gradient(45deg,#00f5ff,#9d00ff,#00f5ff);
+  background-size:300% 300%;
+  animation:glowRotate 6s linear infinite;
+  filter:blur(30px);
+  z-index:-1;
+}
+
+@keyframes glowRotate{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ===== ABOUT SECTION ===== */
+
+.about{
+  padding:120px 10%;
+  display:flex;
+  gap:60px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.about-left{
+  flex:1;
+  position:relative;
+  text-align:center;
+}
+
+.about-left img{
+  width:280px;
+  border-radius:20px;
+  box-shadow:0 0 30px #00f5ff;
+}
+
+.tech-icon{
+  position:absolute;
+  font-size:30px;
+  color:#00f5ff;
+  animation:float 5s infinite ease-in-out;
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+  100%{transform:translateY(0);}
+}
+
+.about-right{
+  flex:1;
+}
+
+.glass{
+  background:rgba(255,255,255,0.05);
+  padding:30px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(0,255,255,0.3);
+  box-shadow:0 0 25px rgba(0,255,255,0.2);
+}
+
+.counter{
+  font-size:30px;
+  color:#00f5ff;
+  margin-top:10px;
+}
+
+/* Timeline */
+
+.timeline{
+  margin-top:40px;
+  border-left:2px solid #00f5ff;
+  padding-left:20px;
+}
+
+.timeline-item{
+  margin-bottom:20px;
+}
+.skills-section{
+    padding:100px 10%;
+    background:#0f0f1b;
+    text-align:center;
+}
+
+.section-title{
+    font-size:40px;
+    color:#00f5ff;
+    margin-bottom:60px;
+    text-shadow:0 0 20px #00f5ff;
+}
+/* -----Skills section-------*/
+
+.skills-container{
+    max-width:800px;
+    margin:auto;
+}
+
+.skill{
+    margin-bottom:30px;
+    cursor:pointer;
+}
+
+.skill span{
+    display:block;
+    margin-bottom:10px;
+    font-weight:500;
+    font-size:18px;
+}
+
+.skill-bar{
+    width:100%;
+    height:12px;
+    background:#1e1e2f;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 0 10px #000 inset;
+}
+
+.skill-progress{
+    height:100%;
+    width:0;
+    background:linear-gradient(90deg,#00f5ff,#9d00ff);
+    border-radius:20px;
+    transition:width 1.5s ease;
+    box-shadow:0 0 20px #9d00ff;
+}
+
+/* Hover percentage effect */
+.skill::after{
+    content: attr(data-skill) "%";
+    float:right;
+    color:#9d00ff;
+    opacity:0;
+    transition:0.3s;
+}
+
+.skill:hover::after{
+    opacity:1;
+}
+
+/* ===== PROJECTS ===== */
+
+.projects{
+  padding:120px 10%;
+  text-align:center;
+}
+
+.filter-btns{
+  margin-bottom:40px;
+}
+
+.filter-btns button{
+  margin:10px;
+  padding:10px 20px;
+  background:none;
+  border:1px solid #00f5ff;
+  color:#00f5ff;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.filter-btns button:hover{
+  background:#00f5ff;
+  color:black;
+}
+
+.project-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content:center;
+}
+
+.project-card{
+  width:300px;
+  background:rgba(255,255,255,0.05);
+  border-radius:20px;
+  overflow:hidden;
+  transition:0.5s;
+  transform-style:preserve-3d;
+  cursor:pointer;
+}
+
+.project-card:hover{
+  transform:rotateY(10deg) rotateX(5deg);
+}
+
+.project-img{
+  height:200px;
+  background:#111;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#00f5ff;
+}
+
+.project-content{
+  padding:20px;
+  display:none;
+}
+
+.project-card.active .project-content{
+  display:block;
+}
+
+.tag{
+  display:inline-block;
+  margin:5px;
+  padding:5px 10px;
+  border:1px solid #00f5ff;
+  border-radius:20px;
+  font-size:12px;
+}
+
+/* ===== CONTACT ===== */
+
+.contact-section{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f0f1b,#1b1b2f);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:80px 20px;
+}
+
+.contact-container{
+    width:100%;
+    max-width:800px;
+    text-align:center;
+}
+
+.contact-title{
+    font-size:40px;
+    margin-bottom:40px;
+    color:#00f5ff;
+    text-shadow:0 0 20px #00f5ff;
+}
+
+/* Glass Form */
+.contact-form{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+    padding:40px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 0 40px rgba(0,255,255,0.1);
+    margin-bottom:40px;
+}
+
+.input-group{
+    position:relative;
+    margin-bottom:30px;
+}
+
+.input-group input,
+.input-group textarea{
+    width:100%;
+    padding:12px;
+    background:transparent;
+    border:none;
+    border-bottom:2px solid #555;
+    outline:none;
+    color:#fff;
+    font-size:16px;
+}
+
+.input-group label{
+    position:absolute;
+    left:0;
+    top:12px;
+    color:#aaa;
+    transition:0.3s;
+    pointer-events:none;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group textarea:focus + label,
+.input-group textarea:valid + label{
+    top:-15px;
+    font-size:13px;
+    color:#00f5ff;
+}
+
+.input-group input:focus,
+.input-group textarea:focus{
+    border-color:#00f5ff;
+    box-shadow:0 0 10px #00f5ff;
+}
+
+/* Button */
+.submit-btn{
+    position:relative;
+    padding:12px 30px;
+    background:linear-gradient(90deg,#00f5ff,#9d00ff);
+    border:none;
+    border-radius:50px;
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.submit-btn:hover{
+    box-shadow:0 0 20px #00f5ff;
+    transform:translateY(-3px);
+}
+
+/* Contact Links */
+.contact-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.contact-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 20px;
+    border-radius:50px;
+    text-decoration:none;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+    color:#fff;
+    transition:0.4s;
+}
+
+.contact-item i{
+    font-size:18px;
+}
+
+.contact-item:hover{
+    transform:translateY(-5px);
+    background:linear-gradient(90deg,#00f5ff,#9d00ff);
+    color:#000;
+    box-shadow:0 0 25px #00f5ff;
+}
+.email-only{
+    font-weight:500;
+    letter-spacing:0.5px;
+}
+
+/* Responsive */
+@media(max-width:600px){
+    .contact-form{
+        padding:25px;
+    }
+}
+
+/* ===== Responsive ===== */
+
+@media(max-width:900px){
+  .hero, .about{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <h2>Portfolio</h2>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skill</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-left">
+    <h1>Hi, I'm Deepasri</h1>
+    <div class="typing" id="typing"></div>
+    <div class="hero-card">
+      Building scalable systems. Passionate about Java & Web.
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="profile-wrapper">
+      <img src="deepasri.jpg">
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-left">
+    <img src="deepasri.jpg">
+    <div class="tech-icon" style="top:0;left:0;">💻</div>
+    <div class="tech-icon" style="top:20%;right:0;">⚡</div>
+    <div class="tech-icon" style="bottom:0;left:20%;">🚀</div>
+  </div>
+
+  <div class="about-right">
+    <div class="glass">
+      <h2>About Me</h2>
+      <p>ECE student transitioning into Software Development.</p>
+
+      <div class="counter" data-target="75">0</div>
+      <p>Java Mastery</p>
+
+      <div class="timeline">
+        <div class="timeline-item">2023 – Started Engineering Journey</div>
+        <div class="timeline-item">2024 – Built First Java Project</div>
+        <div class="timeline-item">2025 – Focused on Web & DSA</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="skills" class="skills-section">
+    <h2 class="section-title">My Skills</h2>
+
+    <div class="skills-container">
+
+        <!-- Skill Item -->
+        <div class="skill" data-skill="75">
+            <span>Java</span>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill" data-skill="60">
+            <span>Problem Solving</span>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill" data-skill="40">
+            <span>Data Structures Basics</span>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill" data-skill="70">
+            <span>HTML</span>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill" data-skill="65">
+            <span>CSS</span>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill" data-skill="55">
+            <span>JavaScript</span>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill" data-skill="55">
+            <span>AI Fundamentals</span>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill" data-skill="70">
+            <span>Presentation Skills</span>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill" data-skill="60">
+            <span>Communication</span>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="projects" id="projects">
+  <h2>Projects</h2>
+
+  <div class="filter-btns">
+    <button onclick="filterProjects('all')">All</button>
+    <button onclick="filterProjects('java')">Java</button>
+    <button onclick="filterProjects('web')">Web</button>
+    <button onclick="filterProjects('ai')">AI</button>
+  </div>
+
+  <div class="project-grid">
+
+    <div class="project-card" data-category="java" onclick="toggleProject(this)">
+      <div class="project-img">Campus Recruitment</div>
+      <div class="project-content">
+        <p>A recruitment management system that tracks student eligibility, company postings, and interview schedules in an organized and automated manner.</p>
+        <span class="tag">Java</span>
+        <span class="tag">MySQL</span>
+      </div>
+    </div>
+
+    <div class="project-card" data-category="web" onclick="toggleProject(this)">
+      <div class="project-img">Portfolio Website</div>
+      <div class="project-content">
+        <p>A modern developer portfolio built with interactive design and responsive layout to professionally present my skills and projects..</p>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+      </div>
+    </div>
+
+    <div class="project-card" data-category="ai" onclick="toggleProject(this)">
+      <div class="project-img">Object Counter</div>
+      <div class="project-content">
+        <p>An automated object counting application designed to improve accuracy and efficiency through structured programming logic.</p>
+        <span class="tag">OpenCV</span>
+        <span class="tag">AI</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+    <div class="contact-container">
+
+        <h2 class="contact-title">Let's Connect</h2>
+
+        <!-- Glass Contact Form -->
+        <form class="contact-form">
+
+            <div class="input-group">
+                <input type="text" required>
+                <label>Your Name</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" required>
+                <label>Your Email</label>
+            </div>
+
+            <div class="input-group">
+                <textarea rows="4" required></textarea>
+                <label>Your Message</label>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Send Message
+                <span class="ripple"></span>
+            </button>
+
+        </form>
+
+        <!-- Your Contact Links -->
+        <div class="contact-links">
+
+            <a href="https://www.linkedin.com/in/deepasri-p-583995333" target="_blank" class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+
+            <a href="https://github.com/deepasrid429-png" target="_blank" class="contact-item">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+
+            <a href="mailto:deepasrid429@gmail.com" class="contact-item email-only">
+    deepasrid429@gmail.com
+</a>
+
+        </div>
+
+    </div>
+</section>
+
+<script>
+/* Typing */
+const roles=["Java Developer","Web Developer","Problem Solver"];
+let i=0,j=0,current='',isDeleting=false;
+function type(){
+  current=roles[i];
+  if(!isDeleting){
+    document.getElementById('typing').innerHTML=current.substring(0,j++);
+    if(j>current.length){isDeleting=true;setTimeout(type,1000);return;}
+  }else{
+    document.getElementById('typing').innerHTML=current.substring(0,j--);
+    if(j==0){isDeleting=false;i=(i+1)%roles.length;}
+  }
+  setTimeout(type,isDeleting?60:120);
+}
+type();
+
+/* Project Expand */
+function toggleProject(card){
+  card.classList.toggle('active');
+}
+
+/* Filter */
+function filterProjects(category){
+  document.querySelectorAll('.project-card').forEach(card=>{
+    if(category==='all'||card.dataset.category===category){
+      card.style.display='block';
+    }else{
+      card.style.display='none';
+    }
+  });
+}
+
+/* Counter Animation */
+const counters=document.querySelectorAll('.counter');
+counters.forEach(counter=>{
+  const update=()=>{
+    const target=+counter.dataset.target;
+    const count=+counter.innerText;
+    const increment=target/50;
+    if(count<target){
+      counter.innerText=Math.ceil(count+increment);
+      setTimeout(update,40);
+    }else{
+      counter.innerText=target+"%";
+    }
+  };
+  update();
+});
+</script>
+<script>
+const skills = document.querySelectorAll(".skill");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            const progress = entry.target.querySelector(".skill-progress");
+            progress.style.width = entry.target.getAttribute("data-skill") + "%";
+        }
+    });
+}, { threshold: 0.5 });
+
+skills.forEach(skill => {
+    observer.observe(skill);
+});
+</script>
+<script>
+const button = document.querySelector(".submit-btn");
+
+button.addEventListener("click", function(e){
+    let ripple = document.createElement("span");
+    ripple.classList.add("ripple");
+    this.appendChild(ripple);
+
+    let x = e.clientX - e.target.offsetLeft;
+    let y = e.clientY - e.target.offsetTop;
+
+    ripple.style.left = x + "px";
+    ripple.style.top = y + "px";
+
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
+});
+</script>
+</body>
+</html>
